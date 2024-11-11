@@ -9,7 +9,13 @@ const PORT = process.env.PORT || 5000;
 // Connect to the database
 connectDB();
 
-app.use(cors());
+app.use(cors(
+      {
+    origin: ["https://solar-intelli-solutions.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  }
+));
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 
